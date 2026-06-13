@@ -204,7 +204,7 @@
   function go(id) { location.hash = '#' + id; }
   function route() {
     var id = (location.hash || '').replace(/^#/, '') || (BOOK.parts[0] && BOOK.parts[0].chapters[0] && BOOK.parts[0].chapters[0].id);
-    if (id === 'sources') { renderSources(); markActive('sources'); return; }
+    if (id === 'sources') { if (!(BOOK.sources && BOOK.sources.length)) { go(CH[0] && CH[0].id || 'home'); return; } renderSources(); markActive('sources'); return; }
     var c = byId[id] || CH[0]; if (!c) return;
     renderChapter(c); markActive(c.id);
   }
