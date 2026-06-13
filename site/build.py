@@ -16,14 +16,14 @@ META = {
     'tagline_zh': '从"会写代码"到"设计、约束、验证、治理一套软件交付系统"。面向资深 SDE、技术负责人与架构师；以一手来源为事实基础。',
     'tagline_en': 'From writing code to designing, constraining, verifying, and governing a software-delivery system. For senior SDEs, tech leads, and architects — grounded in first-party sources.',
     'metaphor': [
-        {'k': 'AGENTS.md / CLAUDE.md', 'zh': '冰箱上的家规便条', 'en': 'a note stuck on the fridge'},
-        {'k': 'harness 工程', 'zh': '工位 + 工具 + 门禁 + 隔离操作间 + 验收员 + 撤回键', 'en': 'the workstation, tools, access, isolated room, inspector, undo button'},
-        {'k': 'context 工程', 'zh': '派活前把该交代的背景备齐', 'en': 'brief the background before you hand off'},
-        {'k': 'tool 工程', 'zh': '工具顺手、标签清楚、危险的锁起来', 'en': 'tools within reach, clearly labeled, dangerous ones locked'},
-        {'k': 'sandbox / 权限', 'zh': '隔离操作间 + 门禁分级', 'en': 'an isolated room + tiered access'},
-        {'k': 'eval', 'zh': '试用期考核：看真实任务，不是面试 demo', 'en': 'a probation review — real tasks, not the interview demo'},
-        {'k': 'trace', 'zh': '监控录像 / 工作留痕', 'en': 'the security-camera footage / work log'},
-        {'k': '多 agent', 'zh': '一个班组多个外包：分工，别同时凿一面墙', 'en': "a crew of contractors: divide work, don't chisel the same wall"},
+        {'k_zh': 'AGENTS.md / CLAUDE.md', 'k_en': 'AGENTS.md / CLAUDE.md', 'zh': '冰箱上的家规便条', 'en': 'a note stuck on the fridge'},
+        {'k_zh': 'harness 工程', 'k_en': 'harness engineering', 'zh': '工位 + 工具 + 门禁 + 隔离操作间 + 验收员 + 撤回键', 'en': 'the workstation, tools, access, isolated room, inspector, undo button'},
+        {'k_zh': 'context 工程', 'k_en': 'context engineering', 'zh': '派活前把该交代的背景备齐', 'en': 'brief the background before you hand off'},
+        {'k_zh': 'tool 工程', 'k_en': 'tool engineering', 'zh': '工具顺手、标签清楚、危险的锁起来', 'en': 'tools within reach, clearly labeled, dangerous ones locked'},
+        {'k_zh': 'sandbox / 权限', 'k_en': 'sandbox / permissions', 'zh': '隔离操作间 + 门禁分级', 'en': 'an isolated room + tiered access'},
+        {'k_zh': 'eval', 'k_en': 'eval', 'zh': '试用期考核：看真实任务，不是面试 demo', 'en': 'a probation review — real tasks, not the interview demo'},
+        {'k_zh': 'trace', 'k_en': 'trace', 'zh': '监控录像 / 工作留痕', 'en': 'the security-camera footage / work log'},
+        {'k_zh': '多 agent', 'k_en': 'multi-agent', 'zh': '一个班组多个外包：分工，别同时凿一面墙', 'en': "a crew of contractors: divide work, don't chisel the same wall"},
     ],
 }
 

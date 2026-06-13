@@ -2,7 +2,15 @@
 (function () {
   'use strict';
   var BOOK = window.BOOK || { parts: [], meta: {} };
-  var LANG = localStorage.getItem('asde-lang') || 'zh';
+  // Language: honor a saved choice; otherwise detect from the browser —
+  // Chinese browser -> zh, everything else -> en.
+  function detectLang() {
+    try { var s = localStorage.getItem('asde-lang'); if (s === 'zh' || s === 'en') return s; } catch (e) {}
+    var ls = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || navigator.userLanguage || 'en'];
+    for (var i = 0; i < ls.length; i++) { if (/^zh(-|_|$)/i.test(ls[i])) return 'zh'; }
+    return 'en';
+  }
+  var LANG = detectLang();
 
   // flatten chapters in order, keep part grouping
   var CH = [];
@@ -144,8 +152,7 @@
     head.innerHTML =
       '<div class="kicker">' + esc(LANG === 'zh' ? (c._part.part_zh || '') : (c._part.part_en || '')) +
       (c.order != null ? ' · ' + (LANG === 'zh' ? '第 ' + c.order + ' 章' : 'Ch. ' + c.order) : '') + '</div>' +
-      '<h1 class="chapter-h1">' + esc(LANG === 'zh' ? c.title_zh : (c.title_en || c.title_zh)) +
-      (LANG === 'zh' && c.title_en ? '<span class="en">' + esc(c.title_en) + '</span>' : '') + '</h1>';
+      '<h1 class="chapter-h1">' + esc(LANG === 'zh' ? c.title_zh : (c.title_en || c.title_zh)) + '</h1>';
     art.appendChild(head);
 
     if (c.sources && c.sources.length) {
@@ -180,7 +187,7 @@
   function homeHTML(c, body) {
     var m = BOOK.meta || {};
     var rows = (m.metaphor || []).map(function (r) {
-      return '<div class="cell"><div class="k">' + esc(r.k) + '</div><div class="v">' + esc(LANG === 'zh' ? r.zh : r.en) + '</div></div>';
+      return '<div class="cell"><div class="k">' + esc(LANG === 'zh' ? (r.k_zh || r.k) : (r.k_en || r.k)) + '</div><div class="v">' + esc(LANG === 'zh' ? r.zh : r.en) + '</div></div>';
     }).join('');
     var cover = LANG === 'en'
       ? 'assets/agentic-software-engineering-handbook-cover-english.png'
@@ -223,10 +230,16 @@
   }
 
   // ---- language ----
+  function applyChrome() {
+    var si = $('#searchInput'); if (si) si.placeholder = (LANG === 'zh' ? '搜索…' : 'Search…');
+    var sub = document.querySelector('.brand .sub'); if (sub) sub.textContent = (LANG === 'zh' ? '软件工程手册' : 'The Agentic SDE Handbook');
+    document.title = (LANG === 'zh' ? 'Agentic 软件工程手册' : 'The Agentic Software Engineering Handbook');
+  }
   function setLang(l) {
-    LANG = l; localStorage.setItem('asde-lang', l);
+    LANG = l; try { localStorage.setItem('asde-lang', l); } catch (e) {}
     document.documentElement.lang = (l === 'zh' ? 'zh-CN' : 'en');
     document.querySelectorAll('.langtoggle button').forEach(function (b) { b.classList.toggle('active', b.dataset.lang === l); });
+    applyChrome();
     buildSidebar(); buildSearchIndex(); route();
   }
 
@@ -281,6 +294,7 @@
       b.addEventListener('click', function () { setLang(b.dataset.lang); });
     });
     var si = $('#searchInput');
+    applyChrome();
     si.addEventListener('input', function () { search(si.value); });
     si.addEventListener('keydown', function (e) { if (e.key === 'Escape') { si.value = ''; search(''); si.blur(); } });
     document.addEventListener('click', function (e) { if (!e.target.closest('.search') && !e.target.closest('#searchResults')) $('#searchResults').classList.remove('show'); });
