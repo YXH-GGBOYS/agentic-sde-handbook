@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic SDE harness mark</title>
+  <desc id="desc">A sienna agent node held inside ink square brackets.</desc>
+  <path fill="#1C1B19" d="M112 104H228V168H176V344H228V408H112Z"/>
+  <path fill="#1C1B19" d="M400 104H284V168H336V344H284V408H400Z"/>
+  <circle cx="256" cy="256" r="60" fill="#8A3324"/>
+</svg>
