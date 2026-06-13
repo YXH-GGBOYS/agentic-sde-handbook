@@ -1,0 +1,23 @@
+# ---- OS ----
+.DS_Store
+
+# ---- 用户私有素材，绝不公开 ----
+*.pdf
+*.extracted.txt
+安某文风指纹_*.md
+
+# ---- 内部工具 / 项目记忆 / 写作方法（含对私有指纹的引用）----
+.claude/
+CLAUDE.md
+memory/
+book/style-guide.md
+
+# ---- 研究中间产物与内部笔记；仅保留 build 需要的来源清单 ----
+research/*
+!research/sources_index.json
+
+# ---- 一手来源全文快照：公开站点不需要，且避免整篇转载的版权问题 ----
+sources/
+
+# ---- 草稿备份 ----
+book/content_backup_*/
