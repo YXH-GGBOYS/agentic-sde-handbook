@@ -2,46 +2,21 @@
 
 **English** · [中文](README.zh.md)
 
-A handbook on software engineering and project management in the age of coding agents — 34 chapters across 10 parts, written in parallel Chinese and English.
+A handbook on software engineering and project management in the age of coding agents — 34 chapters, written in parallel Chinese and English.
 
 **Live:** https://sde.yinxinghan.com
 
-Every concept follows the same three beats — *everyday analogy → engineering definition → real case*. Facts are grounded in first-party GitHub / OpenAI / Anthropic material, with clearly-marked secondary analysis; each one carries a clickable source.
+Every concept follows the same three beats — *everyday analogy → engineering definition → real case*. Facts are grounded in first-party GitHub / OpenAI / Anthropic material, with secondary analysis clearly marked; each carries a clickable source.
 
-## Local preview
+## This repository
 
-Pure static, offline, no server — just open `site/index.html` in a browser. The UI picks its language from the browser (a Chinese browser shows Chinese, everything else shows English) and you can switch any time at the top right.
+This repo holds the **published static site** (`site/`). It's plain HTML/CSS/JS with the content bundled into `site/content.js` — open `site/index.html` in a browser to read it offline; no build step or server needed. The UI picks Chinese or English from the browser, and you can switch any time at the top right.
 
-## Structure
-
-```
-site/                  the publishable static site
-  index.html
-  assets/              styles, scripts, vendored libs (marked / highlight.js), covers, favicon
-  content.js           content bundle generated from markdown by build.py
-book/
-  content/zh/          Chinese source, one file per chapter
-  content/en/          parallel English source (same filenames)
-  TOC.md               detailed table of contents
-research/
-  sources_index.json   source-index data
-```
-
-## Rebuild
-
-The source of truth is the markdown in `book/content/`. After editing any chapter, regenerate the site bundle:
-
-```bash
-python3 site/build.py
-```
-
-## Deploy
-
-On push, `.github/workflows/pages.yml` publishes `site/` to GitHub Pages; the custom domain lives in `site/CNAME`.
+Deployment: a push to `main` publishes `site/` to GitHub Pages (`.github/workflows/pages.yml`); the custom domain lives in `site/CNAME`.
 
 ## Sources & shelf life
 
-Facts are current as of **2026-06-13**. This corner of software moves fast — re-check feature / price / version claims against the official pages. Known source caveats are in Chapter 34.
+Facts are current as of mid-2026. This corner of software moves fast — re-check feature / version claims against the official pages. Known source caveats are in Chapter 34 (on the site).
 
 ## License
 

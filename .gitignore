@@ -1,23 +1,27 @@
+# 只公开「可发布的网站本体」(site/) + README + 部署配置。
+# 其余全是开发环节/源稿/文风方法论，一律留本地、不进 GitHub。
+
 # ---- OS ----
 .DS_Store
 
-# ---- 用户私有素材，绝不公开 ----
+# ---- 用户私有素材 ----
 *.pdf
 *.extracted.txt
 安某文风指纹_*.md
 
-# ---- 内部工具 / 项目记忆 / 写作方法（含对私有指纹的引用）----
+# ---- 内部工具 / 项目记忆 / 文风方法论（绝不公开）----
 .claude/
 CLAUDE.md
 memory/
-book/style-guide.md
 
-# ---- 研究中间产物与内部笔记；仅保留 build 需要的来源清单 ----
-research/*
-!research/sources_index.json
+# ---- 研究、文风标准、来源数据（开发环节）----
+research/
 
-# ---- 一手来源全文快照：公开站点不需要，且避免整篇转载的版权问题 ----
+# ---- 书稿 markdown 源 + 规划大纲 + 风格规范（源稿留本地；公开的是 site/content.js）----
+book/
+
+# ---- 构建脚本（dev 工具）----
+site/build.py
+
+# ---- 一手来源全文快照 ----
 sources/
-
-# ---- 草稿备份 ----
-book/content_backup_*/
