@@ -241,6 +241,9 @@ section.seg[data-kind="quiz"] em, section.seg[data-kind="quiz"] strong { font-st
 .sr-empty { padding: 14px; color: var(--ink-faint); font-size: 13px; }
 
 /* ---------- home / landing ---------- */
+.home-cover { margin: 10px 0 34px; text-align: center; }
+.home-cover img { max-width: 388px; width: 100%; height: auto; border: 1px solid var(--line);
+  border-radius: 3px; box-shadow: 0 14px 44px rgba(28,27,25,.13), 0 2px 8px rgba(28,27,25,.06); }
 .home-hero { padding: 26px 0 4px; }
 .home-hero .eyebrow { font-family: var(--sans); font-size: 12px; letter-spacing: 2px;
   text-transform: uppercase; color: var(--accent); font-weight: 600; }

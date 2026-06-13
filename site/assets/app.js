@@ -182,10 +182,12 @@
     var rows = (m.metaphor || []).map(function (r) {
       return '<div class="cell"><div class="k">' + esc(r.k) + '</div><div class="v">' + esc(LANG === 'zh' ? r.zh : r.en) + '</div></div>';
     }).join('');
+    var cover = LANG === 'en'
+      ? 'assets/agentic-software-engineering-handbook-cover-english.png'
+      : 'assets/agentic-software-engineering-handbook-cover.png';
+    var alt = LANG === 'en' ? 'The Agentic Software Engineering Handbook — cover' : 'Agentic 软件工程手册 — 封面';
     var hero =
-      '<div class="home-hero"><div class="eyebrow">' + esc(m.eyebrow || 'AGENTIC SOFTWARE ENGINEERING') + '</div>' +
-      '<h1>' + esc(LANG === 'zh' ? (m.title_zh || '') : (m.title_en || '')) + '</h1>' +
-      '<div class="tagline">' + esc(LANG === 'zh' ? (m.tagline_zh || '') : (m.tagline_en || '')) + '</div></div>' +
+      '<div class="home-cover"><img src="' + cover + '" alt="' + esc(alt) + '" loading="eager" /></div>' +
       (rows ? '<div class="metaphor-card"><div class="mc-head">' + (LANG === 'zh' ? '中心隐喻 · agent = 不懂你家规矩的新外包' : 'Central metaphor · the agent is a new contractor') + '</div><div class="metaphor-grid">' + rows + '</div></div>' : '');
     var content = window.marked ? window.marked.parse(body || '') : '';
     return hero + content;
